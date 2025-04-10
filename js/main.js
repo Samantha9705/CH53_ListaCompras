@@ -12,6 +12,7 @@ const cuerpoTabla = tablaListaCompras.getElementsByTagName("tbody").item(0); //t
 const contadorProductos = document.getElementById("contadorProductos");
 const totalProductos = document.getElementById("totalProductos");
 const productosTotal = document.getElementById("productosTotal");
+const btnClear = document.getElementById("btnClear");
 
 // Numeracion de la primera columna de la tabla 
 let cont = 0;
@@ -41,7 +42,7 @@ function getPrecio(){
     return Math.round((Math.random() *10000)) / 100;
     
 };
-console.log(getPrecio);
+
 
 // Validamos el nombre
 btnAgregar.addEventListener("click", function (event){
@@ -140,5 +141,19 @@ window.addEventListener("load", function(event){
     
 });
 
-// Validamos la cantidad. - que sea numerico, que sea mayo a 0 
+// funcion para limpiar todo (resumen, datos, campo y agregar alerta)
+
+btnClear.addEventListener("click", function(event){
+    event.preventDefault();
+
+//localStorage.clear();
+
+localStorage.removeItem("resumen");
+localStorage.removeItem("datos");
+
+
+location.reload();
+
+})
+
 
